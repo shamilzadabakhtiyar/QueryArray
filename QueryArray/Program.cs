@@ -4,8 +4,10 @@ var arr = new[] { 1, 2, 3 };
 QueryArray<int> q = arr;
 QueryArray<int> q2 = new QueryArray<int>();
 q2.LoadFromArray(arr);
-q2.Add(4);
-q2.Add(5);
+//q2.Add(4);
+//q2.Add(5);
+q2.AddRange(new[] {4, 5} );
+q2.RemoveAt(3);
 
 //while (q.Next())
 //{

@@ -56,11 +56,23 @@ namespace QueryArray
 
         public int AddRange(T[] items)
         {
-            foreach (var item in items)
+            if(arrSize + items.Length >= capacity)
+                ReSize(arrSize + items.Length);
+            for (int i = 0; i < items.Length; i++)
             {
-                Add(item);
+                arr[arrSize] = items[i];
+                arrSize++;
             }
             return arrSize;
+        }
+
+        public void RemoveAt(int index)
+        {
+            for (int i = index; i < arrSize - 1; i++)
+            {
+                arr[i] = arr[i + 1];
+            }
+            arrSize--;
         }
 
         private void ReSize(int newSize)
